@@ -1,0 +1,34 @@
+#Program name: U2,M2,PROJECT 1
+#Program purpose: List-o-Matic program
+#Created/Revised: Liam Ahern on 11/4/20
+
+awesomelist=["yellow","green","red","blue","orange"] #assigning list to variable
+
+def coolfunction(): #defining function
+  while True: #while loop
+    if awesomelist==[]: #if list is empty
+      print("awesomelist is now an empty list!") #print statement
+      break #stopping function
+    print("look at all the cool fish in the pond!",awesomelist) #print statement
+    coolinput=input("enter the color of a fish in the pond or \"quit\": ") #assigning input to variable
+    if coolinput.lower()=="quit": #if input is quit
+      print()
+      print("bye!") #print statement
+      False #stopping function
+      break #stopping function
+      print()
+    elif coolinput in awesomelist: #if input is in list
+      liam=awesomelist.index(coolinput) #assigning index to variable
+      print("1 instance of",awesomelist.pop(liam),"removed from list") #print statement
+      print()
+    else: #otherwise
+      awesomelist.append(coolinput) #add value to list
+      print("1 instance of",coolinput,"appended to list") #print statement
+      print()
+print()
+coolfunction() #calling function
+print()
+print("list:",awesomelist) #print statement
+
+#END OF CODE
+print("\nEND OF CODE\n")
