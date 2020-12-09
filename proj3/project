@@ -1,47 +1,39 @@
-#Program name: U2,M3,PROJECT
-#Program purpose: Power Iteration of Sequences
-#Created/Revised: Liam Ahern on 11/12/20
+#Program name: U1,M4,P1
+#Program purpose: strAnalysis function
+#Created/Revised: Liam Ahern on 10/13/20
 
-#PART I
+#Step 6
+print(" ")
+print("Step 6")
+print(" ")
 
-verseinput=input("enter a saying or poem: ") #assigning input
-print()
-verselist=verseinput.split() #assigning split variable
-verselength=len(verselist) #assigning length variable
-printlist=[] #empty list
-counter=0 #counter
-
-for word in verselist: #for loop
-  if counter==(verselength): #if statement
-    break #stop loop
-  elif len(word)<=3: #if the list is less than 3
-    printlist.append(word.lower()) #append statement
-    counter+=1 #counter addition
-  elif len(word)>=7: #if length is greater than 7
-    printlist.append(word.upper()) #append statement
-    counter+=1 #counter addition
-  else: #otherwise
-    printlist.append(word) #append statement
-
-#PART II
-
-def word_mixer(list): #defining function
-  list.sort() #sort list
-  vl3=[] #empty list
-  while len(list)>5: #while loop
-    popped=list.pop(-5) #pop statement
-    vl3.append(popped) #append statement
-    popped2=list.pop(0) #pop statement
-    vl3.append(popped2) #append statement
-    popped3=list.pop(-1) #pop statement
-    vl3.append(popped3) #append statement
-  return(vl3) #return list
-printable=(word_mixer(printlist)) #using function
-actuallyprinting="" #empty string
-
-for word in printable: #for loop
-  actuallyprinting+=word+" " #addition to string
-print(actuallyprinting) #print statement
+def strAnalysis(string=""): #defining function
+  repeats=0 #setting accumulator
+  while repeats<3: #setting while loop
+    string=input("enter a string or number: ") #input for parameter
+    if repeats>=3: #to end the while loop
+      break #break the loop
+      False #just to make sure of the end
+    elif string.isdigit(): #check if input is a digit
+      if int(string)<99: #seeing if its a larger or smaller number
+        print(string,"is a smaller number than expected.") #printing whether its larger or smaller
+        repeats+=1 #adds to accumulator
+        print(" ") #spacing
+      elif int(string)>=99:
+        print(string,"is a larger number than expected.")
+        repeats+=1 #adds to accumulator
+        print(" ") #spacing
+    elif string.isalpha(): #checking if the string is all alphabetical characters
+      print('\"'+string+'\"',"is all alphabetical characters!") #printing that the input is all alphabetical characters
+      repeats+=1 #adds to accumulator
+      print(" ") #spacing
+    elif string=="": #seeing if the input is empty
+      print(" ") #spacing
+    else: #the only other possible format of input
+      print('\"'+string+'\"',"is a surprise! it\'s neither all alpha nor all digit characters!") #printing that its an outlier; neither alpha or digits
+      repeats+=1 #adds to accumulator
+      print(" ") #spacing
+(strAnalysis()) #calling the function
 
 #END OF CODE
-print("\nEND OF CODE")
+print("END OF CODE")
