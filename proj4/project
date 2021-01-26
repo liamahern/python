@@ -1,0 +1,53 @@
+from random import randrange #using randrange rather than randint
+def die_roller (): #function definition
+  return (randrange(1, 6)) #return statement using randrange rather than randint
+# roll a die
+print(die_roller()) #print statement using function
+
+#DIE ROLLING ^^
+
+from random import randint #import random 
+def odd_random(): #define function
+  return randint(1, 102) #return statement
+while True: #while loop
+  rand=odd_random() #function caller
+  if rand%2==1: #if function is odd
+    print(rand) #print
+    break #break statement
+  else: #otherwise
+    pass #pass
+    
+#RANDINT ^^ odd numbers 1-102
+
+from random import randint #import random 
+
+def die_roller (): #define function
+  n1=(randint(1, 6)) #variable one
+  n2=(randint(1, 6)) #variable two
+  return[n1,n2] #return variables
+
+# roll a die
+print(die_roller()) #print statement
+
+#^^ return 2 random integers
+
+from random import shuffle #import random function
+def pick_card(): #defining function
+  card_type = ['Clubs', 'Diamonds', 'Hearts', 'Spades']; #list creation
+  card_number = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'] #list creation 
+  # choose a type at random
+  shuffle(card_type) #shuffle function
+  shuffle(card_number) #shuffle function
+  return [card_number[1],card_type[1]] #return statement
+# Show the randomly picked card
+print(pick_card()) #print statement
+
+#random card type using shuffle
+
+cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose"] #defining list
+
+from random import choice #importing random function
+city=choice(cities) #variable creation
+print(city) #print statement
+
+#^^^ RANDOM CITY
