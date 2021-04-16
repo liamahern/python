@@ -1,0 +1,149 @@
+#program name:      U3M4TICTACTOE-LA
+#program purpose:   creating a tic tac toe program
+#created/revised:   L. Ahern on 4/14/21
+
+
+def cheeseBoard(board): #creates cheese board function
+  print("+-------" * 3,"+",sep="") #prints top part of chart
+  for row in range(3): #iterates 3 times
+    print("|       " * 3,"|",sep="") #prints the space in between each square
+    for col in range(3): #iterates 3 times
+      print("|   " + str(board[row][col]) + "   ",end="") #prints the section where each number or letter will go
+    print("|") #prints a side
+    print("|       " * 3,"|",sep="") #prints the final sides
+    print("+-------" * 3,"+",sep="") #prints the bottom of the board
+
+board=[[cheesy*3+chez+1 for chez in range(3)] for cheesy in range(3)] #finalizes the board
+board[1][1]="X" #sets the middle value to X automatically
+cheeseBoard(board) #prints the initial board
+coollist=[1,2,3,4,6,7,8,9] #creates a list to check for values that have and have not been used
+def cheesput(number): #creates the cheesput function
+  if int(number) in coollist: #if the integer that was inputted is in the list
+    if int(number)==1: #check if the input is 1
+      board[0][0]="O" #sets the board value to "O"
+      coollist.remove(1) #removes the number inputted from the list
+    elif int(number)==2: #check if the input is 2
+      board[0][1]="O" #sets the board value to "O"
+      coollist.remove(2) #removes the number inputted from the list
+    elif int(number)==3: #check if the input is 3
+      board[0][2]="O" #sets the board value to "O"
+      coollist.remove(3) #removes the number inputted from the list
+    elif int(number)==4: #check if the input is 4
+      board[1][0]="O" #sets the board value to "O"
+      coollist.remove(4) #removes the number inputted from the list
+    elif int(number)==6: #check if the input is 6
+      board[1][2]="O" #sets the board value to "O"
+      coollist.remove(6) #removes the number inputted from the list
+    elif int(number)==7: #check if the input is 7
+      board[2][0]="O" #sets the board value to "O"
+      coollist.remove(7) #removes the number inputted from the list
+    elif int(number)==8: #check if the input is 8
+      board[2][1]="O" #sets the board value to "O"
+      coollist.remove(8) #removes the number inputted from the list
+    elif int(number)==9: #check if the input is 9
+      board[2][2]="O" #sets the board value to "O"
+      coollist.remove(9) #removes the number inputted from the list
+    else: #otherwise
+      print("invalid input") #print invalid statement
+  else: #otherwise
+    print("value not within coollist") #the value isnt within the list
+
+def cheesput2(number): #creates the cheesput 2 function
+  if int(number) in coollist: #if the integer that was inputted is in the list
+    if int(number)==1: #check if the input is 1
+      board[0][0]="X" #sets the board value to "X"
+      coollist.remove(1) #removes the number inputted from the list
+    elif int(number)==2: #check if the input is 2
+      board[0][1]="X" #sets the board value to "X"
+      coollist.remove(2) #removes the number inputted from the list
+    elif int(number)==3: #check if the input is 3
+      board[0][2]="X" #sets the board value to "X"
+      coollist.remove(3) #removes the number inputted from the list
+    elif int(number)==4: #check if the input is 4
+      board[1][0]="X" #sets the board value to "X"
+      coollist.remove(4) #removes the number inputted from the list
+    elif int(number)==6: #check if the input is 6
+      board[1][2]="X" #sets the board value to "X"
+      coollist.remove(6) #removes the number inputted from the list
+    elif int(number)==7: #check if the input is 7
+      board[2][0]="X" #sets the board value to "X" 
+      coollist.remove(7) #removes the number inputted from the list
+    elif int(number)==8: #check if the input is 8
+      board[2][1]="X" #sets the board value to "X"
+      coollist.remove(8) #removes the number inputted from the list
+    elif int(number)==9: #check if the input is 9
+      board[2][2]="X" #sets the board value to "X"
+      coollist.remove(9) #removes the number inputted from the list
+    else: #otherwise
+      print("invalid input") #print invalid input
+  else: #otherwise
+    print("value not within coollist2") #print the value is not within the list
+
+def pooh(): #defining winnie the pooh function
+  W=False #set W default to False
+  L=False #set L default to False
+  for item in range(3): #for each item in the range of 0 - 2
+    if board[item][0]=="O" and board[item][1]=="O" and board[item][2]=="O": #if each row has 3 values of O next to each other horizontally
+      W=True #set the win variable to true
+      break #break the loop
+    elif board[0][item]=="O" and board[1][item]=="O" and board[2][item]=="O": #if each value has 3 values of O vertically stacked
+      W=True #set the win variable to true
+      break #break the loop
+    elif (board[0][0]=='O' and board[1][1]=='O' and board[2][2]=='O') or (board[2][0]=='O' and board[1][1]=='O' and board[0][2]=='O'): #if diagonally there are 3 O's
+      W=True #set the win variable to true
+      break #break the loop
+    elif board[item][0]=="X" and board[item][1]=="X" and board[item][2]=="X": #if each row has 3 values of X next to each other horizontally
+      L=True #set the lose variable to true
+      break #break the loop
+    elif board[0][item]=="X" and board[1][item]=="X" and board[2][item]=="X": #if each value has 3 values of X vertically stacked
+      L=True #set the lose variable to true
+      break #break the loop
+    elif (board[0][0]=='X' and board[1][1]=='X' and board[2][2]=='X') or (board[2][0]=='X' and board[1][1]=='X' and board[0][2]=='X'): #if diagonally there are 3 X's
+      L=True #set the lose variable to true
+      break #break the loop
+    else: #otherwise
+      continue #continue
+  if W==True: #if the W variable is true
+    return("you win") #return you win statement
+  if L==True: #if the L variable is true
+    return("you lose") #return you lose statement
+  if L==False and W==False and coollist==[]: #if the W variable is false and the L variable is false and coollist is empty
+    return("tie") #return tie statement
+  else: #otherwise
+    return None #return none
+
+from random import choice #import choice from random module
+randrangelist=[1,2,3,4,6,7,8,9] #create randrangelist with numbers 1 - 9
+def randomchoice(): #create randomchoice variable
+  cool=choice(randrangelist) #randomizes choice from the list
+  return cool #returns the value
+gimmenumber=randomchoice() #creates variable to call randomchoice function
+for item in range(4): #iterates 4 times
+  num=int(input("which number would you like to put \"O\" in? (enter an integer): ")) #takes input variable to input into board
+  cheesput(num) #throws inputted number into the cheesput function
+  randrangelist.remove(num) #removes the inputted number from the randrangelist which checks numbers that have and have not been chosen
+  gimmenumber=randomchoice() #resets randomized number chooser for the bot
+  if pooh()=="you win": #if the function returns true
+    print("you win") #print you win
+    (cheeseBoard(board)) #print the board
+    break #break the loop
+  if pooh()=="tie": #if the function returns with a tie
+    print("tie") #print tie
+    cheeseBoard(board) #prints the board
+  randrangelist.remove(gimmenumber) #removes bot's move from the randrangelist
+  cheesput2(gimmenumber) #takes inputted number and puts it in cheesput2 function
+  (cheeseBoard(board)) #prints the board
+  pooh() #runs the winnie the pooh function
+  if pooh()=="you win": #if the function returns true
+    print("you win") #print you win
+    (cheeseBoard(board)) #print the board
+    break #break the loop
+  if pooh()=="you lose": #if the function returns false
+    print("you lose") #print you lose
+    (cheeseBoard(board)) #print the board
+    break #break the loop
+  if pooh()=="tie": #if the function returns with a tie
+    print("tie") #prints tie
+
+#end of code
+print("\nend of code\n")
